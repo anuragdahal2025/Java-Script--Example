@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Examples - Anurag Dahal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+        .section h2 {
+            color: #333;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .demo-area {
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border-left: 4px solid #007bff;
+        }
+        .output {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0.25rem;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .btn-success {
+            background: #28a745;
+        }
+        .btn-success:hover {
+            background: #1e7e34;
+        }
+        .btn-warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        .btn-warning:hover {
+            background: #e0a800;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+        .todo-item.completed {
+            background: #d4edda;
+            text-decoration: line-through;
+        }
+        .highlight {
+            background: yellow;
+            padding: 0.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">JavaScript Examples by Anurag Dahal</h1>
+        <p class="text-center">Interactive examples of JavaScript concepts and features</p>
+
+        <!-- Variables Section -->
+        <section class="section">
+            <h2>1. Variables and Data Types</h2>
+            
+            <div class="demo-area">
+                <h3>Variable Declarations</h3>
+                <button class="btn" onclick="demoVariables()">Show Variable Examples</button>
+                <div id="variables-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Data Types</h3>
+                <button class="btn" onclick="demoDataTypes()">Show Data Types</button>
+                <div id="datatypes-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Type Conversion</h3>
+                <button class="btn" onclick="demoTypeConversion()">Show Type Conversion</button>
+                <div id="conversion-output" class="output"></div>
+            </div>
+        </section>
+
+        <!-- Operators Section -->
+        <section class="section">
+            <h2>2. Operators</h2>
+            
+            <div class="demo-area">
+                <h3>Arithmetic Operators</h3>
+                <button class="btn" onclick="demoArithmetic()">Show Arithmetic Operations</button>
+                <div id="arithmetic-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Comparison Operators</h3>
+                <button class="btn" onclick="demoComparison()">Show Comparison Operations</button>
+                <div id="comparison-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Logical Operators</h3>
+                <button class="btn" onclick="demoLogical()">Show Logical Operations</button>
+                <div id="logical-output" class="output"></div>
+            </div>
+        </section>
+
+        <!-- Control Structures Section -->
+        <section class="section">
+            <h2>3. Control Structures</h2>
+            
+            <div class="demo-area">
+                <h3>If-Else Statements</h3>
+                <div class="form-group">
+                    <label for="age-input">Enter your age:</label>
+                    <input type="number" id="age-input" placeholder="Enter age">
+                </div>
+                <button class="btn" onclick="demoIfElse()">Check Age</button>
+                <div id="ifelse-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Switch Statement</h3>
+                <div class="form-group">
+                    <label for="day-input">Enter day number (1-7):</label>
+                    <input type="number" id="day-input" min="1" max="7" placeholder="1-7">
+                </div>
+                <button class="btn" onclick="demoSwitch()">Get Day Name</button>
+                <div id="switch-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Loops</h3>
+                <button class="btn" onclick="demoLoops()">Show Loop Examples</button>
+                <div id="loops-output" class="output"></div>
+            </div>
+        </section>
+
+        <!-- Functions Section -->
+        <section class="section">
+            <h2>4. Functions</h2>
+            
+            <div class="demo-area">
+                <h3>Function Declarations</h3>
+                <button class="btn" onclick="demoFunctionDeclarations()">Show Function Examples</button>
+                <div id="functions-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Function with Parameters</h3>
+                <div class="form-group">
+                    <label for="num1">Number 1:</label>
+                    <input type="number" id="num1" placeholder="Enter first number">
+                </div>
+                <div class="form-group">
+                    <label for="num2">Number 2:</label>
+                    <input type="number" id="num2" placeholder="Enter second number">
+                </div>
+                <button class="btn" onclick="demoFunctionParameters()">Calculate Sum</button>
+                <div id="parameters-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Arrow Functions</h3>
+                <button class="btn" onclick="demoArrowFunctions()">Show Arrow Function Examples</button>
+                <div id="arrow-output" class="output"></div>
+            </div>
+        </section>
+
+        <!-- Arrays Section -->
+        <section class="section">
+            <h2>5. Arrays</h2>
+            
+            <div class="demo-area">
+                <h3>Array Methods</h3>
+                <button class="btn" onclick="demoArrayMethods()">Show Array Methods</button>
+                <div id="array-methods-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Array Iteration</h3>
+                <button class="btn" onclick="demoArrayIteration()">Show Array Iteration</button>
+                <div id="array-iteration-output" class="output"></div>
+            </div>
+        </section>
+
+        <!-- Objects Section -->
+        <section class="section">
+            <h2>6. Objects</h2>
+            
+            <div class="demo-area">
+                <h3>Object Creation and Methods</h3>
+                <button class="btn" onclick="demoObjects()">Show Object Examples</button>
+                <div id="objects-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Object Destructuring</h3>
+                <button class="btn" onclick="demoDestructuring()">Show Destructuring</button>
+                <div id="destructuring-output" class="output"></div>
+            </div>
+        </section>
+
+        <!-- DOM Manipulation Section -->
+        <section class="section">
+            <h2>7. DOM Manipulation</h2>
+            
+            <div class="demo-area">
+                <h3>Changing Elements</h3>
+                <p id="changeable-text">This text can be changed!</p>
+                <button class="btn" onclick="changeText()">Change Text</button>
+                <button class="btn" onclick="changeColor()">Change Color</button>
+                <button class="btn" onclick="toggleVisibility()">Toggle Visibility</button>
+            </div>
+
+            <div class="demo-area">
+                <h3>Event Handling</h3>
+                <button class="btn" id="event-button">Click me for events!</button>
+                <div id="events-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Form Handling</h3>
+                <form id="demo-form">
+                    <div class="form-group">
+                        <label for="form-name">Name:</label>
+                        <input type="text" id="form-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-email">Email:</label>
+                        <input type="email" id="form-email" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit Form</button>
+                </form>
+                <div id="form-output" class="output"></div>
+            </div>
+        </section>
+
+        <!-- Local Storage Section -->
+        <section class="section">
+            <h2>8. Local Storage</h2>
+            
+            <div class="demo-area">
+                <h3>Counter with Local Storage</h3>
+                <p>Count: <span id="counter">0</span></p>
+                <button class="btn" onclick="incrementCounter()">Increment</button>
+                <button class="btn" onclick="decrementCounter()">Decrement</button>
+                <button class="btn" onclick="resetCounter()">Reset</button>
+            </div>
+
+            <div class="demo-area">
+                <h3>Todo List with Local Storage</h3>
+                <div class="form-group">
+                    <label for="todo-input">Add new todo:</label>
+                    <input type="text" id="todo-input" placeholder="Enter todo item">
+                </div>
+                <button class="btn" onclick="addTodo()">Add Todo</button>
+                <button class="btn" onclick="clearTodos()">Clear All</button>
+                <div id="todo-list"></div>
+            </div>
+        </section>
+
+        <!-- Error Handling Section -->
+        <section class="section">
+            <h2>9. Error Handling</h2>
+            
+            <div class="demo-area">
+                <h3>Try-Catch Example</h3>
+                <button class="btn" onclick="demoTryCatch()">Test Error Handling</button>
+                <div id="error-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Async Error Handling</h3>
+                <button class="btn" onclick="demoAsyncError()">Test Async Error</button>
+                <div id="async-error-output" class="output"></div>
+            </div>
+        </section>
+
+        <!-- Asynchronous JavaScript Section -->
+        <section class="section">
+            <h2>10. Asynchronous JavaScript</h2>
+            
+            <div class="demo-area">
+                <h3>Promises</h3>
+                <button class="btn" onclick="demoPromises()">Test Promises</button>
+                <div id="promises-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Async/Await</h3>
+                <button class="btn" onclick="demoAsyncAwait()">Test Async/Await</button>
+                <div id="async-output" class="output"></div>
+            </div>
+
+            <div class="demo-area">
+                <h3>Fetch API</h3>
+                <button class="btn" onclick="demoFetch()">Fetch Data</button>
+                <div id="fetch-output" class="output"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="javascript-examples.js"></script>
+</body>
+</html>
